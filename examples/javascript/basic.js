@@ -9,25 +9,15 @@ const API_KEY = process.env.APIVERVE_API_KEY || 'YOUR_API_KEY_HERE';
 const API_URL = 'https://api.apiverve.com/v1/qrcodegenerator';
 
 /**
- * Make a POST request to the QR Code Generator API
+ * Make a GET request to the QR Code Generator API
  */
 async function callQRCodeGeneratorAPI() {
   try {
-    // Request body
-    const requestBody &#x3D; {
-    &quot;value&quot;: &quot;https://apiverve.com&quot;,
-    &quot;type&quot;: &quot;url&quot;,
-    &quot;format&quot;: &quot;png&quot;,
-    &quot;margin&quot;: &quot;0&quot;
-};
-
     const response = await fetch(API_URL, {
-      method: 'POST',
+      method: 'GET',
       headers: {
-        'x-api-key': API_KEY,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(requestBody)
+        'x-api-key': API_KEY
+      }
     });
 
     // Check if response is successful
