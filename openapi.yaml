@@ -1,23 +1,26 @@
 openapi: 3.0.4
 info:
   title: QR Code Generator
-  description: QR Code Generator is a simple tool for generating QR codes. It returns a PNG image of the QR code.
+  description: >-
+    QR Code Generator creates customizable QR codes with support for colors,
+    gradients, logos, and various styling options. Generate professional QR
+    codes for marketing, packaging, and digital experiences.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/qrcodegenerator:
     post:
       summary: Generate QR Code
-      description: QR Code Generator is a simple tool for generating QR codes. It returns a PNG image of the QR code.
+      description: Generate a styled QR code with custom colors, logo, and design options
       operationId: qrcodegenerator
       parameters: []
       responses:
@@ -35,26 +38,27 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
-                  id: 31d88a02-4dd3-4c97-9725-995551c31512
+                  id: b07577c8-e17f-4af3-aeff-94c74d9ea04a
                   format: png
                   type: url
                   correction: M
                   size: 5
                   margin: 0
-                  expires: 1740259974243
-                  downloadURL: https://storage.googleapis.com/apiverve.appspot.com/qrcodegenerator/7277a6dc-6b1f-4af4-820a-755eb1c1a24d.png?GoogleAccessId=635500398038-compute%40developer.gserviceaccount.com&Expires=1740259974&Signature=kk80QPNRGLhIXm6%2BmKozIhoq2ZpehDsiT7%2FyHp4JxvSj5f6EdktMxJrZipxZiz%2BgQNKdr%2F30jaBk8DWT2Q6rPNdQjbJlh1ibu6FnghwMTwtJwU7Y0o2xBXm1b6p9TdqcpMK3ueJviYJ7mnsxdIud6aIQb1t%2FnaUQM%2Fu4dIB8%2By5xXIzldiKKu7zXttyQYb5qHIb89gadMfjd8SVVJVNXm97eroa82C9QL%2Bspuz9grMvyq7x7PfpXW3pZo89x9QKYQu1hT%2Bv1exID7CKv7keZcQ5v7IdSCPGKZyweGsVRQHJ4gwWHJcA2%2FGXrMUKVzXjkUsYBhEArblnh3FVI2%2FP3FQ%3D%3D
+                  expires: 1766096864874
+                  downloadURL: >-
+                    https://storage.googleapis.com/apiverve/APIData/qrcodegenerator/2556d708-7ec4-45ce-b0fb-98d47fcf170f.png?GoogleAccessId=635500398038-compute%40developer.gserviceaccount.com&Expires=1766096864&Signature=fRvOFggSHakWfnBqT46dyv9trO4sVcwPjvjV8hpFG9yI2G2UG%2FoAvJFwzX%2F%2FYPcxRfzcR5Cnc6uSx74iJANJXn42Hpcgr5EudNa%2BxtAo106LfyWBaQgaZggNVai4D6WsDYyBL8sTPGIDxjnldVFIJy7HFMRCKUZ%2B3KQMiYujmFoc2tVMVi7lngxrfAFIylHOmEgCXDaAWXGb6NwV%2BZNsDE1Ju9DLseLnhZ%2Fh2LxIbxRiF042MLkg2hp54P%2FrIhABfOcwW7CoV9Hpn4N88t5818ljyCrLfeLQpxM5gtcRCZJ3MYiICwLkmr%2F62KDmx5JBMFLB%2FVfh%2Bewsc0QJytB3vg%3D%3D
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
       requestBody:
         required: true
         content:
@@ -64,25 +68,52 @@ paths:
               properties:
                 value:
                   type: string
-                  description: The text to encode in the QR code
-                  example: https://apiverve.com
+                  description: The text or data to encode in the QR code
+                type:
+                  type: string
+                  description: >-
+                    The type of data being encoded. Advanced types (wifi, vcard)
+                    are premium.
                 format:
                   type: string
-                  description: The format of the QR code (e.g., png, jpg)
-                  default: png
-                  example: png
+                  description: Output format. Vector formats (svg, webp) are premium.
+                size:
+                  type: number
+                  description: Size of the QR code in pixels (50-2048)
                 margin:
-                  type: integer
-                  description: The margin around the QR code (in pixels)
-                  default: '0'
-                  example: '0'
+                  type: number
+                  description: Margin around the QR code in pixels (0-100)
+                color:
+                  type: string
+                  description: 'Foreground color as hex code (e.g., #000000)'
+                backgroundColor:
+                  type: string
+                  description: 'Background color as hex code (e.g., #ffffff)'
+                dotStyle:
+                  type: string
+                  description: Style of QR code dots
+                cornerSquareStyle:
+                  type: string
+                  description: Style of corner squares
+                cornerDotStyle:
+                  type: string
+                  description: Style of corner dots
+                gradient:
+                  type: string
+                  description: >-
+                    Gradient configuration with type (linear, radial) and
+                    colorStops array
+                logo:
+                  type: string
+                  description: URL of logo image to place in center of QR code
+                logoSize:
+                  type: number
+                  description: Size of logo relative to QR code (0.1-0.5)
+                logoMargin:
+                  type: number
+                  description: Margin around logo in pixels
               required:
-              - value
-              example:
-                value: https://apiverve.com
-                type: url
-                format: png
-                margin: '0'
+                - value
 components:
   securitySchemes:
     api_key:
@@ -90,4 +121,9 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
+sampleRequest:
+  value: https://apiverve.com
+  type: url
+  format: png
+  margin: '0'
