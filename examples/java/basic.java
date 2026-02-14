@@ -12,15 +12,8 @@ public class BasicExample {
         QRCodeGeneratorAPIClient client = new QRCodeGeneratorAPIClient("YOUR_API_KEY_HERE");
 
         try {
-            // Request body
-            Map&lt;String, Object&gt; parameters &#x3D; new HashMap&lt;&gt;();
-        parameters.put(&quot;value&quot;, &quot;https://apiverve.com&quot;);
-        parameters.put(&quot;type&quot;, &quot;url&quot;);
-        parameters.put(&quot;format&quot;, &quot;png&quot;);
-        parameters.put(&quot;margin&quot;, &quot;0&quot;);
-
-            // Execute the API request
-            APIResponse response = client.execute(parameters);
+            // Execute the API request (no parameters required)
+            APIResponse response = client.execute(null);
 
             // Check if the request was successful
             if (response.isSuccess()) {
