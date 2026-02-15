@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.apiverve'
-version = '1.1.12'
+version = '1.1.13'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -20,13 +20,13 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.apiverve'
             artifactId = 'qrcodegenerator-api'
-            version = '1.1.12'
+            version = '1.1.13'
 
             from components.java
 
             pom {
                 name = 'QR Code Generator'
-                description = 'QR Code Generator is a simple tool for generating QR codes. It returns a PNG image of the QR code.'
+                description = 'QR Code Generator creates customizable QR codes with support for colors, gradients, logos, and various styling options. Generate professional QR codes for marketing, packaging, and digital experiences.'
                 url = 'https://apiverve.com'
 
                 licenses {
