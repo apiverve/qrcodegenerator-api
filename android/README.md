@@ -1,6 +1,6 @@
 # QR Code Generator Android SDK
 
-QR Code Generator is a simple tool for generating QR codes. It returns a PNG image of the QR code.
+QR Code Generator creates customizable QR codes with support for colors, gradients, logos, and various styling options. Generate professional QR codes for marketing, packaging, and digital experiences.
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Platform](https://img.shields.io/badge/Platform-Android-green.svg)
@@ -26,7 +26,7 @@ Add the dependency:
 
 ```gradle
 dependencies {
-    implementation 'com.github.apiverve:qrcodegenerator-api:1.1.12'
+    implementation 'com.github.apiverve:qrcodegenerator-api:1.1.13'
 }
 ```
 
@@ -47,7 +47,20 @@ QRCodeGeneratorAPIClient client = new QRCodeGeneratorAPIClient("YOUR_API_KEY");
 try {
     // Prepare request parameters
     Map<String, Object> parameters = new HashMap<>();
-    parameters.put("key", "value");
+    parameters.put("value", "");
+    parameters.put("type", "text");
+    parameters.put("format", "png");
+    parameters.put("size", 300);
+    parameters.put("margin", 10);
+    parameters.put("color", "#000000");
+    parameters.put("backgroundColor", "#ffffff");
+    parameters.put("dotStyle", "square");
+    parameters.put("cornerSquareStyle", "square");
+    parameters.put("cornerDotStyle", "square");
+    parameters.put("gradient", "");
+    parameters.put("logo", "");
+    parameters.put("logoSize", 0.3);
+    parameters.put("logoMargin", 5);
 
     // Execute the request
     APIResponse response = client.execute(parameters);
@@ -135,7 +148,7 @@ For detailed API documentation, visit: [https://docs.apiverve.com/ref/qrcodegene
 
 ## Get Your API Key
 
-Get your API key from [https://apiverve.com](https://apiverve.com)
+Get your API key from [https://apiverve.com](https://apiverve.com?utm_source=android&utm_medium=readme)
 
 ---
 
@@ -162,4 +175,4 @@ This SDK is released under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## About APIVerve
 
-[APIVerve](https://apiverve.com) provides production-ready REST APIs for developers. Fast, reliable, and easy to integrate.
+[APIVerve](https://apiverve.com?utm_source=android&utm_medium=readme) provides production-ready REST APIs for developers. Fast, reliable, and easy to integrate.
