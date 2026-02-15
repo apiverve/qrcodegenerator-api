@@ -1,17 +1,20 @@
 [project]
 name = "apiverve-qrcodegenerator"
-version = "1.1.12"
+version = "1.1.13"
 authors = [
   { name="APIVerve", email="hello@apiverve.com" },
 ]
-description = "QR Code Generator is a simple tool for generating QR codes. It returns a PNG image of the QR code."
-keywords = ["qr code generator", "qr code generator api", "qr code generator tool", "qr code generator software", "qr code generator service"]
+description = "QR Code Generator creates customizable QR codes with support for colors, gradients, logos, and various styling options. Generate professional QR codes for marketing, packaging, and digital experiences."
+keywords = []
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.7"
+license = "MIT"
+dependencies = [
+    "requests>=2.25.0"
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Intended Audience :: Developers",
     "Intended Audience :: Financial and Insurance Industry",
