@@ -23,7 +23,22 @@ class ValidationError(QrcodegeneratorAPIClientError):
 
 class QrcodegeneratorAPIClient:
     # Validation rules for parameters (generated from schema)
-    VALIDATION_RULES = {"value": {"type": "string", "required": True}, "type": {"type": "string", "required": False, "default": "text"}, "format": {"type": "string", "required": False, "default": "png"}, "size": {"type": "number", "required": False, "default": "300"}, "margin": {"type": "number", "required": False, "default": "10"}, "color": {"type": "string", "required": False, "default": "#000000"}, "backgroundColor": {"type": "string", "required": False, "default": "#ffffff"}, "dotStyle": {"type": "string", "required": False, "default": "square"}, "cornerSquareStyle": {"type": "string", "required": False, "default": "square"}, "cornerDotStyle": {"type": "string", "required": False, "default": "square"}, "gradient": {"type": "object", "required": False}, "logo": {"type": "string", "required": False, "format": "url"}, "logoSize": {"type": "number", "required": False, "default": "0.3"}, "logoMargin": {"type": "number", "required": False, "default": "5"}}
+    VALIDATION_RULES = {
+        "value": {"type": "string", "required": True},
+        "type": {"type": "string", "required": False, "default": "text"},
+        "format": {"type": "string", "required": False, "default": "png"},
+        "size": {"type": "number", "required": False, "default": "300"},
+        "margin": {"type": "number", "required": False, "default": "10"},
+        "color": {"type": "string", "required": False, "default": "#000000"},
+        "backgroundColor": {"type": "string", "required": False, "default": "#ffffff"},
+        "dotStyle": {"type": "string", "required": False, "default": "square"},
+        "cornerSquareStyle": {"type": "string", "required": False, "default": "square"},
+        "cornerDotStyle": {"type": "string", "required": False, "default": "square"},
+        "gradient": {"type": "object", "required": False},
+        "logo": {"type": "string", "required": False, "format": "url"},
+        "logoSize": {"type": "number", "required": False, "default": "0.3"},
+        "logoMargin": {"type": "number", "required": False, "default": "5"}
+    }
 
     # Format validation patterns
     FORMAT_PATTERNS = {
@@ -71,18 +86,10 @@ class QrcodegeneratorAPIClient:
                 "API key is required. Get your API key at: https://apiverve.com"
             )
 
-        # Check format (alphanumeric, hyphens, and underscores for prefixed keys)
+        # Check format (GUID, prefixed keys like apv_xxx, or alphanumeric)
         if not re.match(r'^[a-zA-Z0-9_-]+$', api_key):
             raise QrcodegeneratorAPIClientError(
                 "Invalid API key format. API key should only contain letters, numbers, hyphens, and underscores. "
-                "Get your API key at: https://apiverve.com"
-            )
-
-        # Check length (at least 32 characters without hyphens/underscores)
-        trimmed_key = api_key.replace('-', '').replace('_', '')
-        if len(trimmed_key) < 32:
-            raise QrcodegeneratorAPIClientError(
-                "Invalid API key. API key appears to be too short. "
                 "Get your API key at: https://apiverve.com"
             )
 
