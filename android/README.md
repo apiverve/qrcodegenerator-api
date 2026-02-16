@@ -26,7 +26,7 @@ Add the dependency:
 
 ```gradle
 dependencies {
-    implementation 'com.github.apiverve:qrcodegenerator-api:1.1.13'
+    implementation 'com.github.apiverve:qrcodegenerator-api:1.1.14'
 }
 ```
 
@@ -47,18 +47,18 @@ QRCodeGeneratorAPIClient client = new QRCodeGeneratorAPIClient("YOUR_API_KEY");
 try {
     // Prepare request parameters
     Map<String, Object> parameters = new HashMap<>();
-    parameters.put("value", "");
-    parameters.put("type", "text");
+    parameters.put("value", "https://apiverve.com");
+    parameters.put("type", "url");
     parameters.put("format", "png");
     parameters.put("size", 300);
-    parameters.put("margin", 10);
+    parameters.put("margin", 0);
     parameters.put("color", "#000000");
     parameters.put("backgroundColor", "#ffffff");
     parameters.put("dotStyle", "square");
     parameters.put("cornerSquareStyle", "square");
     parameters.put("cornerDotStyle", "square");
-    parameters.put("gradient", "");
-    parameters.put("logo", "");
+    parameters.put("gradient", "example");
+    parameters.put("logo", "example");
     parameters.put("logoSize", 0.3);
     parameters.put("logoMargin", 5);
 
