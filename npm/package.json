@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/qrcodegenerator",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "QR Code Generator creates customizable QR codes with support for colors, gradients, logos, and various styling options. Generate professional QR codes for marketing, packaging, and digital experiences.",
   "main": "index.js",
   "types": "index.d.ts",
