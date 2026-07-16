@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -57,7 +57,7 @@ namespace APIVerve.API.QRCodeGenerator
     /// Client for the QRCodeGenerator API
     /// </summary>
     public class QRCodeGeneratorAPIClient
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
         : IDisposable
 #endif
     {
@@ -93,7 +93,7 @@ namespace APIVerve.API.QRCodeGenerator
             { "hexColor", new System.Text.RegularExpressions.Regex(@"^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$", System.Text.RegularExpressions.RegexOptions.IgnoreCase) }
         };
 
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
         private readonly HttpClient _httpClient;
         private readonly bool _disposeHttpClient;
 #endif
@@ -103,7 +103,7 @@ namespace APIVerve.API.QRCodeGenerator
         private bool _isDebug { get; set; }
         private int _maxRetries { get; set; }
         private int _retryDelayMs { get; set; }
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
         private Action<string> _logger { get; set; }
 #endif
         private Dictionary<string, string> _customHeaders { get; set; }
@@ -114,7 +114,7 @@ namespace APIVerve.API.QRCodeGenerator
         /// <param name="apiKey">Your API key from https://apiverve.com</param>
         /// <exception cref="ArgumentException">Thrown when API key is invalid</exception>
         public QRCodeGeneratorAPIClient(string apiKey)
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
             : this(apiKey, true, false, null)
 #endif
         {
@@ -137,7 +137,7 @@ namespace APIVerve.API.QRCodeGenerator
         /// <param name="isDebug">Enable debug logging</param>
         /// <exception cref="ArgumentException">Thrown when API key is invalid</exception>
         public QRCodeGeneratorAPIClient(string apiKey, bool isSecure, bool isDebug)
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
             : this(apiKey, isSecure, isDebug, null)
 #endif
         {
@@ -152,7 +152,7 @@ namespace APIVerve.API.QRCodeGenerator
 #endif
         }
 
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
         /// <summary>
         /// Initialize the API client with your API key and a custom HttpClient
         /// </summary>
@@ -234,7 +234,7 @@ namespace APIVerve.API.QRCodeGenerator
         {
             ValidateApiKey(apiKey);
             _apiKey = apiKey;
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
             _httpClient.DefaultRequestHeaders.Remove("x-api-key");
             _httpClient.DefaultRequestHeaders.Add("x-api-key", _apiKey);
 #endif
@@ -264,7 +264,7 @@ namespace APIVerve.API.QRCodeGenerator
         /// <param name="retryDelayMs">Delay in milliseconds (default: 1000)</param>
         public void SetRetryDelay(int retryDelayMs) => _retryDelayMs = Math.Max(0, retryDelayMs);
 
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
         /// <summary>
         /// Sets a custom logger for request/response debugging
         /// </summary>
@@ -483,14 +483,14 @@ namespace APIVerve.API.QRCodeGenerator
             // Validate parameters before making request
             ValidateParams(options);
 
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
             return ExecuteAsync(options).GetAwaiter().GetResult();
 #else
             return ExecuteWithWebRequest(options);
 #endif
         }
 
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
         /// <summary>
         /// Execute the API call asynchronously
         /// </summary>
@@ -799,7 +799,7 @@ namespace APIVerve.API.QRCodeGenerator
         /// </summary>
         private void Log(string message)
         {
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
             if (_logger != null)
             {
                 _logger(message);
@@ -861,7 +861,7 @@ namespace APIVerve.API.QRCodeGenerator
             return url;
         }
 
-#if NET45 || NETSTANDARD2_0 || NETSTANDARD2_1 || NET6_0
+#if !NET20 && !NET35 && !NET40
         /// <summary>
         /// Disposes the HttpClient if it was created internally
         /// </summary>
