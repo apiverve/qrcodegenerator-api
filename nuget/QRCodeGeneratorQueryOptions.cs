@@ -32,13 +32,13 @@ namespace APIVerve.API.QRCodeGenerator
         /// Size of the QR code in pixels (50-2048)
         /// </summary>
         [JsonProperty("size")]
-        public string Size { get; set; }
+        public double? Size { get; set; }
 
         /// <summary>
         /// Margin around the QR code in pixels (0-100)
         /// </summary>
         [JsonProperty("margin")]
-        public string Margin { get; set; }
+        public double? Margin { get; set; }
 
         /// <summary>
         /// Foreground color as hex code (e.g., #000000)
@@ -74,7 +74,7 @@ namespace APIVerve.API.QRCodeGenerator
         /// Gradient configuration with type (linear, radial) and colorStops array
         /// </summary>
         [JsonProperty("gradient")]
-        public string Gradient { get; set; }
+        public object? Gradient { get; set; }
 
         /// <summary>
         /// URL of logo image to place in center of QR code
@@ -86,12 +86,12 @@ namespace APIVerve.API.QRCodeGenerator
         /// Size of logo relative to QR code (0.1-0.5)
         /// </summary>
         [JsonProperty("logoSize")]
-        public string LogoSize { get; set; }
+        public double? LogoSize { get; set; }
 
         /// <summary>
         /// Margin around logo in pixels
         /// </summary>
         [JsonProperty("logoMargin")]
-        public string LogoMargin { get; set; }
+        public double? LogoMargin { get; set; }
     }
 }
