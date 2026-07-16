@@ -51,7 +51,7 @@ Here's a simple example to get you started quickly:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.QRCodeGenerator;
 
 class Program
 {
@@ -60,7 +60,7 @@ class Program
         // Initialize the API client
         var apiClient = new QRCodeGeneratorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
+        var queryOptions = new QRCodeGeneratorQueryOptions {
     value = "https://apiverve.com",
     type = "url",
     format = "png",
@@ -119,7 +119,7 @@ The modern async/await pattern provides the best performance and code readabilit
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.QRCodeGenerator;
 
 public class Example
 {
@@ -127,7 +127,7 @@ public class Example
     {
         var apiClient = new QRCodeGeneratorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
+        var queryOptions = new QRCodeGeneratorQueryOptions {
     value = "https://apiverve.com",
     type = "url",
     format = "png",
@@ -154,7 +154,7 @@ If you need to use synchronous code, you can use the `Execute` method:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.QRCodeGenerator;
 
 public class Example
 {
@@ -162,7 +162,7 @@ public class Example
     {
         var apiClient = new QRCodeGeneratorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
+        var queryOptions = new QRCodeGeneratorQueryOptions {
     value = "https://apiverve.com",
     type = "url",
     format = "png",
@@ -194,7 +194,7 @@ The API client provides comprehensive error handling. Here are some examples:
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.QRCodeGenerator;
 
 public class Example
 {
@@ -202,7 +202,7 @@ public class Example
     {
         var apiClient = new QRCodeGeneratorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
+        var queryOptions = new QRCodeGeneratorQueryOptions {
     value = "https://apiverve.com",
     type = "url",
     format = "png",
@@ -249,7 +249,7 @@ public class Example
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.QRCodeGenerator;
 
 public class Example
 {
@@ -261,7 +261,7 @@ public class Example
         apiClient.SetMaxRetries(3);        // Retry up to 3 times (default: 0, max: 3)
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
-        var queryOptions = new QueryOptions {
+        var queryOptions = new QRCodeGeneratorQueryOptions {
     value = "https://apiverve.com",
     type = "url",
     format = "png",
@@ -305,7 +305,7 @@ var apiClient = new QRCodeGeneratorAPIClient("[YOUR_API_KEY]");
 apiClient.AddCustomHeader("X-Custom-Header", "custom-value");
 apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
-var queryOptions = new QueryOptions {
+var queryOptions = new QRCodeGeneratorQueryOptions {
     value = "https://apiverve.com",
     type = "url",
     format = "png",
@@ -334,7 +334,7 @@ apiClient.SetLogger(message =>
     Console.WriteLine($"[LOG] {DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}");
 });
 
-var queryOptions = new QueryOptions {
+var queryOptions = new QRCodeGeneratorQueryOptions {
     value = "https://apiverve.com",
     type = "url",
     format = "png",
@@ -355,7 +355,7 @@ var apiClient = new QRCodeGeneratorAPIClient("[YOUR_API_KEY]");
 apiClient.SetMaxRetries(3);           // Retry up to 3 times (default: 0, max: 3)
 apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (default: 1000ms)
 
-var queryOptions = new QueryOptions {
+var queryOptions = new QRCodeGeneratorQueryOptions {
     value = "https://apiverve.com",
     type = "url",
     format = "png",
@@ -370,7 +370,7 @@ var response = await apiClient.ExecuteAsync(queryOptions);
 The API client implements `IDisposable` for proper resource cleanup:
 
 ```csharp
-var queryOptions = new QueryOptions {
+var queryOptions = new QRCodeGeneratorQueryOptions {
     value = "https://apiverve.com",
     type = "url",
     format = "png",
@@ -394,14 +394,14 @@ using (var apiClient = new QRCodeGeneratorAPIClient("[YOUR_API_KEY]"))
   "status": "ok",
   "error": null,
   "data": {
-    "id": "31d88a02-4dd3-4c97-9725-995551c31512",
+    "id": "b07577c8-e17f-4af3-aeff-94c74d9ea04a",
     "format": "png",
     "type": "url",
     "correction": "M",
     "size": 5,
     "margin": 0,
-    "expires": 1740259974243,
-    "downloadURL": "https://storage.googleapis.com/apiverve.appspot.com/qrcodegenerator/7277a6dc-6b1f-4af4-820a-755eb1c1a24d.png?GoogleAccessId=635500398038-compute%40developer.gserviceaccount.com&Expires=1740259974&Signature=kk80QPNRGLhIXm6%2BmKozIhoq2ZpehDsiT7%2FyHp4JxvSj5f6EdktMxJrZipxZiz%2BgQNKdr%2F30jaBk8DWT2Q6rPNdQjbJlh1ibu6FnghwMTwtJwU7Y0o2xBXm1b6p9TdqcpMK3ueJviYJ7mnsxdIud6aIQb1t%2FnaUQM%2Fu4dIB8%2By5xXIzldiKKu7zXttyQYb5qHIb89gadMfjd8SVVJVNXm97eroa82C9QL%2Bspuz9grMvyq7x7PfpXW3pZo89x9QKYQu1hT%2Bv1exID7CKv7keZcQ5v7IdSCPGKZyweGsVRQHJ4gwWHJcA2%2FGXrMUKVzXjkUsYBhEArblnh3FVI2%2FP3FQ%3D%3D"
+    "expires": 1766096864874,
+    "downloadURL": "https://storage.googleapis.com/apiverve/APIData/qrcodegenerator/2556d708-7ec4-45ce-b0fb-98d47fcf170f.png?GoogleAccessId=635500398038-compute%40developer.gserviceaccount.com&Expires=1766096864&Signature=fRvOFggSHakWfnBqT46dyv9trO4sVcwPjvjV8hpFG9yI2G2UG%2FoAvJFwzX%2F%2FYPcxRfzcR5Cnc6uSx74iJANJXn42Hpcgr5EudNa%2BxtAo106LfyWBaQgaZggNVai4D6WsDYyBL8sTPGIDxjnldVFIJy7HFMRCKUZ%2B3KQMiYujmFoc2tVMVi7lngxrfAFIylHOmEgCXDaAWXGb6NwV%2BZNsDE1Ju9DLseLnhZ%2Fh2LxIbxRiF042MLkg2hp54P%2FrIhABfOcwW7CoV9Hpn4N88t5818ljyCrLfeLQpxM5gtcRCZJ3MYiICwLkmr%2F62KDmx5JBMFLB%2FVfh%2Bewsc0QJytB3vg%3D%3D"
   }
 }
 ```
