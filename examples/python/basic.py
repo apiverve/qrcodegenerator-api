@@ -22,7 +22,7 @@ def call_qrcodegenerator_api():
     &#x27;value&#x27;: &#x27;https://apiverve.com&#x27;,
     &#x27;type&#x27;: &#x27;url&#x27;,
     &#x27;format&#x27;: &#x27;png&#x27;,
-    &#x27;margin&#x27;: &#x27;0&#x27;
+    &#x27;margin&#x27;: 0
 }
 
         headers = {

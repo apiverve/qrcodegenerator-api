@@ -18,7 +18,7 @@ async function callQRCodeGeneratorAPI() {
     &quot;value&quot;: &quot;https://apiverve.com&quot;,
     &quot;type&quot;: &quot;url&quot;,
     &quot;format&quot;: &quot;png&quot;,
-    &quot;margin&quot;: &quot;0&quot;
+    &quot;margin&quot;: 0
 };
 
     const response = await fetch(API_URL, {

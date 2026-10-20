@@ -17,7 +17,7 @@ public class BasicExample {
         parameters.put(&quot;value&quot;, &quot;https://apiverve.com&quot;);
         parameters.put(&quot;type&quot;, &quot;url&quot;);
         parameters.put(&quot;format&quot;, &quot;png&quot;);
-        parameters.put(&quot;margin&quot;, &quot;0&quot;);
+        parameters.put(&quot;margin&quot;, 0);
 
             // Execute the API request
             APIResponse response = client.execute(parameters);
