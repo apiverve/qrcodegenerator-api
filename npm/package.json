@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/qrcodegenerator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "QR Code Generator creates customizable QR codes with support for colors, gradients, logos, and various styling options. Generate professional QR codes for marketing, packaging, and digital experiences.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "qr code generator", "qr code api", "custom qr code", "branded qr code", "qr code with logo"
+    "qr code generator api", "qr code api", "qr generator api", "bulk qr code generator", "qr code generator"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/qrcodegenerator-api/issues"
   },
-  "homepage": "https://apiverve.com/marketplace/qrcodegenerator?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/qrcodegenerator?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",

@@ -18,7 +18,7 @@ var query = {
   "value": "https://apiverve.com",
   "type": "url",
   "format": "png",
-  "margin": "0"
+  "margin": 0
 };
 
 // Make the API request using callback
