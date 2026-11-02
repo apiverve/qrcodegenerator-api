@@ -4,6 +4,6 @@ require_relative "apiverve_qrcodegenerator/client"
 
 module APIVerve
   module Qrcodegenerator
-    VERSION = "1.2.3"
+    VERSION = "1.2.4"
   end
 end
